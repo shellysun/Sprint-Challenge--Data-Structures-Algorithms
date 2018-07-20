@@ -1,5 +1,20 @@
 def heapsort(arr):
-  pass
+  def sift(start, count):
+    root = start
+
+    while root * 2 + 1 < count:
+      child = root * 2 + 1
+      if child < count - 1 and arr[child] < arr[child + 1]:
+        child += 1
+      if arr[root] < arr[child]:
+        arr[root], arr[child] = arr[child], arr[root]
+        root = child
+      else:
+        return
+
+    count = len(arr)
+    start = count / 2 - 1
+    end = count - 1
 
 class Heap:
   def __init__(self):
